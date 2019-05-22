@@ -22,13 +22,36 @@ def first_pass( commands ):
 
     name = ''
     num_frames = 1
+    frames_found = False
+    vary_found = False
+
+    for command in commands:
+        print command
+        c = command['op']
+        args = command['args']
+        knob_value = 1
+
+        if c=='frames':
+            num_frames = int(args[0])
+            frames_found=True
+        elif c=='basename':
+            name = args[0]
+        elif c=='vary':
+            vary_found = True
+
+    if vary_found and not frames_found:
+        sys.exit()
+
+    if name=='':
+        name = 'default'
+        print("Name: " + name)
 
     return (name, num_frames)
 
 """======== second_pass( commands ) ==========
 
   In order to set the knobs for animation, we need to keep
-  a seaprate value for each knob for each frame. We can do
+  a separate value for each knob for each frame. We can do
   this by using an array of dictionaries. Each array index
   will correspond to a frame (eg. knobs[0] would be the first
   frame, knobs[2] would be the 3rd frame and so on).
