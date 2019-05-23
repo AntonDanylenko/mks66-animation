@@ -68,6 +68,17 @@ def first_pass( commands ):
 def second_pass( commands, num_frames ):
     frames = [ {} for i in range(num_frames) ]
 
+    for command in commands:
+        print command
+        c = command['op']
+        args = command['args']
+        knob_value = 1
+
+        if c=='vary':
+            increment = (args[3]-args[2])/(args[1]-args[0])
+            for x in range(int(args[0]), int(args[1])):
+                frames[x][command['knob']] = x*increment
+
     return frames
 
 
@@ -189,3 +200,4 @@ def run(filename):
         elif c == 'save':
             save_extension(screen, args[0])
         # end operation loop
+        ###save_extension(screen, "anim/" + name + "%03d"%1111111111111)
