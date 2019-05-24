@@ -155,7 +155,7 @@ def run(filename):
                     reflect = command['constants']
                 add_box(tmp,
                         args[0], args[1], args[2],
-                        args[3]*symbols['bigenator'], args[4]*symbols['bigenator'], args[5]*symbols['bigenator'])
+                        args[3], args[4], args[5])
                 matrix_mult( stack[-1], tmp )
                 draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
                 tmp = []
@@ -164,7 +164,7 @@ def run(filename):
                 if command['constants']:
                     reflect = command['constants']
                 add_sphere(tmp,
-                           args[0], args[1], args[2], args[3]*symbols['bigenator'], step_3d)
+                           args[0], args[1], args[2], args[3], step_3d)
                 matrix_mult( stack[-1], tmp )
                 draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
                 tmp = []
@@ -173,7 +173,7 @@ def run(filename):
                 if command['constants']:
                     reflect = command['constants']
                 add_torus(tmp,
-                          args[0], args[1], args[2], args[3]*symbols['bigenator'], args[4]*symbols['bigenator'], step_3d)
+                          args[0], args[1], args[2], args[3], args[4], step_3d)
                 matrix_mult( stack[-1], tmp )
                 draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
                 tmp = []
@@ -190,12 +190,12 @@ def run(filename):
                 stack[-1] = [x[:] for x in tmp]
                 tmp = []
             elif c == 'scale':
-                tmp = make_scale(args[0], args[1], args[2])
+                tmp = make_scale(args[0]*symbols['bigenator'], args[1]*symbols['bigenator'], args[2]*symbols['bigenator'])
                 matrix_mult(stack[-1], tmp)
                 stack[-1] = [x[:] for x in tmp]
                 tmp = []
             elif c == 'rotate':
-                theta = args[1] * (math.pi/180)
+                theta = args[1] * (math.pi/180) * symbols['spinny']
                 if args[0] == 'x':
                     tmp = make_rotX(theta)
                 elif args[0] == 'y':
