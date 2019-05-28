@@ -296,4 +296,4 @@ def run(filename):
             elif c == 'save':
                 save_extension(screen, args[0])
 
-    make_animation('simple_500')
+    make_animation(name)
