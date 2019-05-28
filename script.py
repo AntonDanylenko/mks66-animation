@@ -142,7 +142,7 @@ def run(filename):
             symbols['spinny'] = frame['spinny']
         if 'bigenator' in frame:
             symbols['bigenator'] = frame['bigenator']
-        print("SYMBOLS: ", symbols)
+        # print("SYMBOLS: ", symbols)
 
         for command in commands:
             # print command
