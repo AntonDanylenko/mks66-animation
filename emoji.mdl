@@ -35,7 +35,6 @@ pop
 push
 move -40 -100 180
 rotate z 10 spinny
-scale 1 1 0.5 bigenator
 torus dull_orange 0 0 0 20 70
 pop
 push
@@ -43,5 +42,5 @@ move -90 -120 140
 rotate x 30 spinny
 rotate z 100 spinny
 torus dull_orange 0 0 0 23 65
-vary spinny 0 49 0 1
+vary spinny 0 49 1 2
 vary bigenator 0 49 1 1.5
