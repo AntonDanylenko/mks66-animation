@@ -76,11 +76,11 @@ def second_pass( commands, num_frames ):
 
         if c=='vary':
             increment = (args[3]-args[2])/(args[1]-args[0])
-            print("INCREMENT: ", increment)
-            for x in range(int(args[0]), int(args[1])):
-                print("X: " + str(x) + ", increment: " + str(increment))
-                frames[x][command['knob']] = args[2]+(x-int(args[0])+1)*increment
-                print(frames[x][command['knob']])
+            # print("INCREMENT: ", increment)
+            for x in range(int(args[0]), int(args[1])+1):
+                # print("X: " + str(x) + ", increment: " + str(increment))
+                frames[x][command['knob']] = args[2]+(x-int(args[0]))*increment
+                # print(frames[x][command['knob']])
 
     return frames
 
@@ -296,4 +296,4 @@ def run(filename):
             elif c == 'save':
                 save_extension(screen, args[0])
 
-    make_animation('simple_500')
+    make_animation(name)
