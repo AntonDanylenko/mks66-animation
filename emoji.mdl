@@ -44,4 +44,4 @@ rotate x 30 spinny
 rotate z 100 spinny
 torus dull_orange 0 0 0 23 65
 vary spinny 0 49 0 1
-vary bigenator 0 49 0.5 1
+vary bigenator 0 49 1 1.5

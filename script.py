@@ -69,7 +69,7 @@ def second_pass( commands, num_frames ):
     frames = [ {} for i in range(num_frames) ]
 
     for command in commands:
-        print command
+        # print command
         c = command['op']
         args = command['args']
         knob_value = 1
